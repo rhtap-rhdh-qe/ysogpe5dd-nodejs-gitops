@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: ysogpe5dd-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ysogpe5dd-nodejs 
+  name: ysogpe5dd-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: ysogpe5dd-nodejs
+    weight: 100 
